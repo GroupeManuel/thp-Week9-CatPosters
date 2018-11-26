@@ -1,0 +1,2 @@
+module ArtisanHelper
+end
