@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'items/index'
+  get 'items/show'
+  root to: 'items#index'
+
   get 'artisan/new'
   get 'artisan/create'
   get 'artisan/show'
@@ -7,8 +11,8 @@ Rails.application.routes.draw do
   get 'artisan/edit'
   get 'artisan/update'
   get 'artisan/destroy'
-	root to: 'item#index'
-  	devise_for :artisans
+  
+  devise_for :artisans
 	resources :carts
 	resources :orders
 	resources :items
