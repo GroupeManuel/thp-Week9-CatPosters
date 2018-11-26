@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+5.times do 
+	Artisan.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8), activity_type: Faker::Job.field, company_address: Faker::Address.full_address) 
+end
+
+20.times do 
+	Item.create!(title: Faker::Science.element, description: Faker::Lorem.sentence, image_url: "photos_sac_cafe_#{rand(1..16)}.jpg", price: rand(0..100))
+end
+
+2.times do 
+	Cart.create!(status: Faker::Lorem.word, artisan_id: rand(1..5))
+end
+
+5.times do
+	CartItem.create!(quantity: rand(1..10), item_id: rand(1..20), cart_id: rand(1..2), price: rand(1..100))
+end
+
