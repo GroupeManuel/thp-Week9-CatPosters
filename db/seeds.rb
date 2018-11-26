@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 5.times do 
-	Artisan.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8), activity_type: , company_address: Faker::Address.full_address) 
+	Artisan.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8), activity_type: Faker::Job.field, company_address: Faker::Address.full_address) 
 end
 
 20.times do 
@@ -19,6 +19,6 @@ end
 end
 
 5.times do
-	CartItem.create!(quantity: rand(1..10), item: rand(1..20), cart: rand(1..2), price: rand(1..100))
+	CartItem.create!(quantity: rand(1..10), item_id: rand(1..20), cart_id: rand(1..2), price: rand(1..100))
 end
 
