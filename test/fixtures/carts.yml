@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  artisan_id: 1
+  total_price: 9.99
+
+two:
+  status: MyString
+  artisan_id: 1
+  total_price: 9.99
