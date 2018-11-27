@@ -5,5 +5,4 @@ Rails.application.routes.draw do
 	resources :orders, only: [:create, :show]
 	resources :items, only: [:index, :show]
 	resources :cart_items, only: [:create, :update, :destroy]
-
 end
