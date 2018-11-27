@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   	#Vidange du panier
   	empty_cart(cart)
 
-  	redirect_to root_path
+  	redirect_to order_path(order.id)
 
   end
 

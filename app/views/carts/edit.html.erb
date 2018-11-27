@@ -9,17 +9,19 @@
 	<tbody>
 	<% @items.each_with_index do |cart_item, i| %>
 		<tr>
-			<td colspan="3">
+			<td>
 				<h5><%= Item.find(cart_item.item_id).title %></h5>
+			</td>
+			<td>
+				<%= link_to cart_item_path(cart_item.id,modif:'-'), method: 'patch' do %>
+					<button> - </button>
+				<% end %>
+				<p><%= cart_item.quantity %> </p>
+				<%= link_to cart_item_path(cart_item.id,modif:'+'), method: 'patch' do %>
+					<button> + </button>
+				<% end %>
 				</td>
-				<td>
-					<% link_to cart_item(cart_item.item_id), method: 'patch' do %>
-						<button> - </button>
-					<% end %>
-					<p><%= cart_item.quantity %> </p>
-
-					</td>
-				<td> <%= cart_item.quantity * cart_item.price %> €</td>
+			<td> <%= cart_item.quantity * cart_item.price %> €</td>
 		</tr>
 	<% end %>
 	</tbody>
