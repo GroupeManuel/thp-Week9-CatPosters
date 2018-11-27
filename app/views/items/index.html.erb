@@ -1,16 +1,58 @@
-<%= @items.each do |item| %>
-	<h5><%= item.title %></h5> 
-	<p><%= item.price %>€  </p>
-	<% begin %>
-		<%= form_tag(cart_item_path(CartItem.find_by(cart_id: @cart.id, item_id: item.id).id), method: "patch") do %>
-			    <%= hidden_field_tag 'id', item.id %>
-	        <%= submit_tag("Ajouter au panier", class: "btn btn-info") %>
-		<% end %>
-	<% rescue %>
-		<%= form_tag(cart_items_path, method: "create") do %>
-		    <%= hidden_field_tag 'id', item.id %>
-	        <%= submit_tag("Ajouter au panier", class: "btn btn-info") %>
-		<% end %>
-	<% end %>
-	<br/>
-<% end %>
+<!-- scrollToTop -->
+    <!-- ================ -->
+    <div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
+
+    <!-- page wrapper start -->
+    <!-- ================ -->
+    <div class="page-wrapper">
+      
+
+      <div id="page-start"></div>
+
+      <!-- section start -->
+      <!-- ================ -->
+      <section class="section light-gray-bg clearfix">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12"> 
+              <!-- Tab panes -->
+              <div class="tab-content clear-style">
+                <div class="tab-pane active" id="pill-1">
+                  <div class="row grid-space-10">
+                  <% @items.each do |item| %>
+                    <div class="col-lg-3 col-md-6">
+                      <div class="listing-item white-bg bordered mb-20">
+                        <div class="overlay-container">
+                          <div class="image_item_container">
+                            <%= image_tag item.image_url, class:'image_item' %>
+                          </div>
+                          <a class="overlay-link popup-img-single" href="../../assets/images/photos_sac_cafe_16.jpg"><i class="fa fa-search-plus"></i></a>
+                          <div class="overlay-to-top links">
+                            <span class="small">
+                              <a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
+                              <a href="#" class="btn-sm-link"><i class="fa fa-link pr-1"></i>View Details</a>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="body">
+                          <h3><%= link_to item.title, item_path(item.id) %></h3>
+                          <p class="small"><%= item.description %></p>
+                          <div class="elements-list clearfix">
+                            <span class="price"><%= item.price %> €</span>
+                            <a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+              <!-- pills end -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section end -->
+    </div>
+    <!-- page-wrapper end -->
