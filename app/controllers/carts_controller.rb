@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   def create
   end
 
-  def show
+  def edit
     @cart = Cart.find(params[:id])
   	@cart_amount = cart_price(@cart.id)
   	@items = @cart.cart_items

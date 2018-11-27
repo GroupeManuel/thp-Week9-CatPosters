@@ -9,8 +9,6 @@ class CartItemsController < ApplicationController
       cart = Artisan.first.cart
   	end
 
-    puts cart
-
     item_id = params['item']
 
   	CartItem.create(
@@ -25,6 +23,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy
