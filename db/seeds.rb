@@ -14,8 +14,8 @@ end
 	Item.create!(title: Faker::Science.element, description: Faker::Lorem.sentence, image_url: "photos_sac_cafe_#{rand(1..16)}.jpg", price: rand(0..100))
 end
 
-2.times do 
-	Cart.create!(status: Faker::Lorem.word, artisan_id: rand(1..5))
+10.times do 
+	Cart.create!(status: Faker::Lorem.word, artisan_id: rand(1..10))
 end
 
 5.times do

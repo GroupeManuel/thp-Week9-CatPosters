@@ -13,6 +13,7 @@ class CartsController < ApplicationController
   end
 
 
+
  private 
   
   def cart_price(id)

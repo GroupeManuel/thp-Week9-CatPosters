@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 	resources :carts, only: [:show, :update]
 	resources :orders, only: [:create, :show]
 	resources :items, only: [:index]
-	resources :cart_items, only: [:create]
+	resources :cart_items, only: [:create, :destroy]
   resources :artisans
 end

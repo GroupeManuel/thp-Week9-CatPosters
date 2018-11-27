@@ -17,9 +17,9 @@ class OrdersController < ApplicationController
   		create_order_item(item,order)
   	}
   	#Vidange du panier
-  	empty_cart(cart)
+  	#empty_cart(cart)
 
-  	redirect_to root_path
+  	#redirect_to root_path
 
   end
 
