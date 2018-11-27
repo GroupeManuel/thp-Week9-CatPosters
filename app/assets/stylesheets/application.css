@@ -32,4 +32,37 @@
 *= require css/custom
  */
 
+ /* PAGE LOGIN ET SIGNUP  */
 
+.devise_container {
+    border: 2px solid #00a0c2;
+    height: 450px;
+    margin-top: 100px;
+    background-color: #FAFAFA;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex; 
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.form input {
+    width: 500px;
+}
+
+.actions {
+    margin-top: 25px;
+}
+
+ /* PAGE INDEX DES ITEMS */
+
+.image_item_container {
+    height: 300px;
+    width: 250px;
+}
+
+.image_item {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}

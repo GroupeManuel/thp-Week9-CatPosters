@@ -1,2 +1,14 @@
-<h1>Order#show</h1>
-<p>Find me in app/views/order/show.html.erb</p>
+<h4>Merci pour votre commande</h4>
+
+<h5>Résumé :</h5>
+
+<% @order.order_items.each do |item| %>
+<div class='row'>
+	<%= item.quantity %> <%= Item.find(item.id).title %> | <%= item.price %> € |  <%= item.price * item.quantity %> € 
+</div>
+<% end %>
+
+<strong>Total : <%= @order.total_price %> € </strong>
+
+<h5>Adresse de livraison</h5>
+<%= @order.delivery_address %>

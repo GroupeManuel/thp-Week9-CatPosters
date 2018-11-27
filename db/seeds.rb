@@ -11,14 +11,14 @@
 end
 
 20.times do 
-	Item.create!(title: Faker::Science.element, description: Faker::Lorem.sentence, image_url: "photos_sac_cafe_#{rand(1..16)}.jpg", price: rand(0..100))
+	Item.create!(title: Faker::Science.element, description: Faker::Lorem.sentence, image_url: "photos_sac_cafe_#{rand(1..16)}.jpg", price: rand(1..100))
 end
 
 10.times do 
-	Cart.create!(status: Faker::Lorem.word, artisan_id: rand(1..10))
+	Cart.create!(status: Faker::Lorem.word, artisan_id: rand(Artisan.first.id..Artisan.last.id))
 end
 
 5.times do
-	CartItem.create!(quantity: rand(1..10), item_id: rand(1..20), cart_id: rand(1..2), price: rand(1..100))
+	CartItem.create!(quantity: rand(1..10), item_id: rand(Item.first.id..Item.last.id), cart_id: rand(Cart.first.id..Cart.last.id), price: rand(1..100))
 end
 

@@ -1,9 +1,0 @@
-<%= @items.each do |item| %>
-	<h5><%= item.title %></h5> 
-	<p> - <%= item.price %>€  </p>
-	<%= form_tag(cart_items_path, method: "create") do %>
-	    <%= hidden_field_tag 'item', item.id %>
-        <%= submit_tag("Ajouter au panier", class: "btn btn-info") %>
-	<% end %>
-	<br/>
-<% end %>

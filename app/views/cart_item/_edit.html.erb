@@ -1,2 +1,5 @@
-<h1>CartItem#create</h1>
-<p>Find me in app/views/cart_item/create.html.erb</p>
+<div>
+	<h5><%= Item.find(cart_item.item_id).title %></h5>
+	<p><%= cart_item.quantity %> </p>
+	<p> <%= cart_item.quantity * cart_item.price %> €</p>
+</div>
