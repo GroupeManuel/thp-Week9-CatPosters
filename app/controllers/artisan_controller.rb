@@ -3,9 +3,11 @@ class ArtisanController < ApplicationController
   skip_before_action :authenticate_artisan!, only: [:new, :index]
 
   def new
+
   end
 
   def create
+  
   end
 
   def show
@@ -22,4 +24,5 @@ class ArtisanController < ApplicationController
 
   def destroy
   end
+
 end
