@@ -1,0 +1,31 @@
+<h4>Récapitulatif de votre panier</h4>
+
+<table>
+	<thead>
+		<th>Article</th>
+		<th>Quantité</th>
+		<th>Prix</th>
+	</thead>
+	<tbody>
+	<% @items.each_with_index do |cart_item, i| %>
+		<tr>
+			<td>
+				<h5><%= Item.find(cart_item.item_id).title %></h5>
+			</td>
+			<td> <%= cart_item.quantity %> </td>
+			<td> <%= cart_item.quantity * cart_item.price %> €</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+
+<h4>Choisissez votre mode de livraison</h4>
+
+<%= form_tag(orders_path, method: "create") do %>
+    <%= hidden_field_tag 'cart', @cart.id %>
+    <%= text_field_tag 'address' %>
+    <%= submit_tag("Valider ma commande", class: "btn btn-info") %>
+<% end %>
+
+<h4>Montant à régler : <%= @cart_amount %> € </h4>
