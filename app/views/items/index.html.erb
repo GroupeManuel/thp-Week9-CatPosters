@@ -1,9 +1,267 @@
-<%= @items.each do |item| %>
-	<h5><%= item.title %></h5> 
-	<p> - <%= item.price %>€  </p>
-	<%= form_tag(cart_items_path, method: "create") do %>
-	    <%= hidden_field_tag 'item', item.id %>
-        <%= submit_tag("Ajouter au panier", class: "btn btn-info") %>
-	<% end %>
-	<br/>
-<% end %>
+<!-- scrollToTop -->
+    <!-- ================ -->
+    <div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
+
+    <!-- page wrapper start -->
+    <!-- ================ -->
+    <div class="page-wrapper">
+      <!-- header-container start -->
+      <div class="header-container">
+        <!-- header start -->
+        <!-- classes:  -->
+        <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+        <!-- "fixed-desktop": enables fixed navigation only for desktop devices e.g. class="header fixed fixed-desktop clearfix" -->
+        <!-- "fixed-all": enables fixed navigation only for all devices desktop and mobile e.g. class="header fixed fixed-desktop clearfix" -->
+        <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+        <!-- "centered": mandatory class for the centered logo layout -->
+        <!-- ================ -->
+        <header class="header fixed fixed-desktop clearfix">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-auto hidden-md-down pl-3">
+                <!-- header-first start -->
+                <!-- ================ -->
+                <div class="header-first clearfix">
+
+                  <!-- logo -->
+                  <div id="logo" class="logo">
+                    <a href="index.html">   <img id="logo_img" src="../../assets/images/logo_dark_cyan.png" alt="The Project"></a>
+                  </div>
+
+                  <!-- name-and-slogan -->
+                  <div class="site-slogan">
+                    Multipurpose HTML5 Template
+                  </div>
+
+                </div>
+                <!-- header-first end -->
+
+              </div>
+              <div class="col-lg-8 ml-auto">
+          
+                <!-- header-second start -->
+                <!-- ================ -->
+                <div class="header-second clearfix">
+                  
+                <!-- main-navigation start -->
+                <!-- classes: -->
+                <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+                <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+                <!-- ================ -->
+                <div class="main-navigation main-navigation--mega-menu  animated">
+                  <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="navbar-brand clearfix hidden-lg-up">
+
+                      <!-- logo -->
+                      <div id="logo-mobile" class="logo">
+                        <a href="index.html"><img id="logo-img-mobile" src="images/logo_dark_cyan.png" alt="The Project"></a>
+                      </div>
+
+                      <!-- name-and-slogan -->
+                      <div class="site-slogan">
+                        Multipurpose HTML5 Template
+                      </div>
+
+                    </div>
+                    
+                    <!-- header dropdown buttons -->
+                    <div class="header-dropdown-buttons hidden-lg-up p-0 ml-auto mr-3">
+                      <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" id="header-drop-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-animation" aria-labelledby="header-drop-3">
+                          <li>
+                            <form role="search" class="search-box margin-clear">
+                              <div class="form-group has-feedback">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <i class="fa fa-search form-control-feedback"></i>
+                              </div>
+                            </form>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" id="header-drop-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket"></i><span class="cart-count default-bg">8</span></button>
+                        <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation" aria-labelledby="header-drop-4">
+                          <li>
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th class="quantity">QTY</th>
+                                  <th class="product">Product</th>
+                                  <th class="amount">Subtotal</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="quantity">2 x</td>
+                                  <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+                                  <td class="amount">$199.00</td>
+                                </tr>
+                                <tr>
+                                  <td class="quantity">3 x</td>
+                                  <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+                                  <td class="amount">$299.00</td>
+                                </tr>
+                                <tr>
+                                  <td class="quantity">3 x</td>
+                                  <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+                                  <td class="amount">$1499.00</td>
+                                </tr>
+                                <tr>
+                                  <td class="total-quantity" colspan="2">Total 8 Items</td>
+                                  <td class="total-amount">$1997.00</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div class="panel-body text-right">
+                              <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+                              <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- header dropdown buttons end -->
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                      <!-- main-menu -->
+                      <ul class="navbar-nav ml-xl-auto">
+                        <li><%= link_to 'LOGIN', root_path, class: "nav-link" %></li>
+                        <li><%= link_to 'SIGNUP', root_path, class: "nav-link" %></li>
+                      </ul>
+                      <!-- main-menu end -->
+                    </div>
+                  </nav>
+                </div>
+                <!-- main-navigation end -->
+                </div>
+                <!-- header-second end -->
+
+              </div>
+              <div class="col-auto hidden-md-down">
+                <!-- header dropdown buttons -->
+                <div class="header-dropdown-buttons">
+                  <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation" aria-labelledby="header-drop-1">
+                      <li>
+                        <form role="search" class="search-box margin-clear">
+                          <div class="form-group has-feedback">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <i class="fa fa-search form-control-feedback"></i>
+                          </div>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" id="header-drop-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket"></i><span class="cart-count default-bg">8</span></button>
+                    <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation" aria-labelledby="header-drop-2">
+                      <li>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th class="quantity">QTY</th>
+                              <th class="product">Product</th>
+                              <th class="amount">Subtotal</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="quantity">2 x</td>
+                              <td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+                              <td class="amount">$199.00</td>
+                            </tr>
+                            <tr>
+                              <td class="quantity">3 x</td>
+                              <td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+                              <td class="amount">$299.00</td>
+                            </tr>
+                            <tr>
+                              <td class="quantity">3 x</td>
+                              <td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+                              <td class="amount">$1499.00</td>
+                            </tr>
+                            <tr>
+                              <td class="total-quantity" colspan="2">Total 8 Items</td>
+                              <td class="total-amount">$1997.00</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="panel-body text-right">
+                          <a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+                          <a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- header dropdown buttons end -->
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- header end -->
+      </div>
+      <!-- header-container end -->
+
+      <div id="page-start"></div>
+
+      <!-- section start -->
+      <!-- ================ -->
+      <section class="section light-gray-bg clearfix">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- pills start -->
+              <!-- ================ -->
+              <!-- Nav tabs -->
+              <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link active" href="#pill-1" role="tab" data-toggle="tab" title="Latest Arrivals"><i class="fa fa-star"></i> Latest Arrivals</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pill-2" role="tab" data-toggle="tab" title="Featured"><i class="fa fa-heart"></i> Featured</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pill-3" role="tab" data-toggle="tab" title="Top Sellers"><i class=" fa fa-arrow-up"></i> Top Sellers</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content clear-style">
+                <div class="tab-pane active" id="pill-1">
+                  <div class="row grid-space-10">
+                  <% @items.each do |item| %>
+                    <div class="col-lg-3 col-md-6">
+                      <div class="listing-item white-bg bordered mb-20">
+                        <div class="overlay-container">
+                          <%= image_tag item.image_url %>
+                          <a class="overlay-link popup-img-single" href="../../assets/images/"><i class="fa fa-search-plus"></i></a>
+                          <span class="badge">30% OFF</span>
+                          <div class="overlay-to-top links">
+                            <span class="small">
+                              <a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
+                              <a href="#" class="btn-sm-link"><i class="fa fa-link pr-1"></i>View Details</a>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="body">
+                          <h3><a href="shop-product.html"><%= item.title %></a></h3>
+                          <p class="small"><%= item.description %></p>
+                          <div class="elements-list clearfix">
+                            <span class="price"><del>$100.00</del> <%= item.price %></span>
+                            <a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+              <!-- pills end -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section end -->
+    </div>
+    <!-- page-wrapper end -->
