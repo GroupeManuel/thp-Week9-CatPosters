@@ -7,7 +7,8 @@ class ArtisanController < ApplicationController
   end
 
   def create
-  
+    puts new_email = params['artisan']['email']
+    Mailing.new.new_subscriber(new_email)
   end
 
   def show
