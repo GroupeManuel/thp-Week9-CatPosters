@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	get '/', to: 'items#index'
+	get '/home', to: 'items#index'
 	root to: 'items#index'
   	devise_for :artisans
 	resources :carts, only: [:edit, :update]
