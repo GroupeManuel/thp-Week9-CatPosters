@@ -1,0 +1,55 @@
+  <div class="container_cart">
+    <div class="row">     
+      <div class="main col-12">      
+        <h1 class="page-title">Shopping Cart</h1>
+        <div class="separator-2"></div>
+        <table class="table cart table-hover table-colored">
+          <thead>
+            <tr>
+              <th>Product </th>
+              <th>Price </th>
+              <th>Quantity</th>
+              <th>Update</th>    
+              <th>Remove </th>
+              <th class="amount">Total </th>
+            </tr>
+          </thead>
+            <tbody>                
+            <% @items.each_with_index do |cart_item, i| %>
+           <tr>
+            <td class ="product">
+             <h5><%= Item.find(cart_item.item_id).title %></h5>
+           </td>
+           <td class ="price"> <%= cart_item.price %> €</td>
+           <td> 
+            <div class="quantity">	
+             <input type="text" class="form-control" value="<%= cart_item.quantity %> ">
+           </div>
+         </td>
+         <td>
+          <%= link_to cart_item_path(cart_item.id,modif:'-'), method: 'patch' do %>
+          <button> - </button>
+          <% end %>
+          <%= link_to cart_item_path(cart_item.id,modif:'+'), method: 'patch' do %>
+          <button> + </button>
+          <% end %>
+        </td>
+        <td class="remove"><a href="#" class="btn btn-remove btn-sm btn-default">Remove</a>
+        </td>
+        <td class="amount"><%= cart_item.quantity * cart_item.price %> €</td>
+      </tr>
+      <% end %>
+      <tr>
+        <td class="total-quantity" colspan="5">Total 8 Items</td>
+        <td class="total-amount">$1997.00</td>	
+      </tr>
+    </tbody>
+      </table>
+        <div class="text-right">
+         <%= form_tag orders_path, method: :post do %>
+              <%= submit_tag 'Create Order' %>
+          <% end %>
+      </div>
+    </div>	
+  </div>
+</div>
