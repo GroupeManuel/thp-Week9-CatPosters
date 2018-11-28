@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require turbolinks
-//= require jquery
 
 // Jquery and Bootstap core js files 
 //= require plugins/jquery.min
