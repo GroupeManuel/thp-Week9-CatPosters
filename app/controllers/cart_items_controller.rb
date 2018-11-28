@@ -2,43 +2,36 @@ class CartItemsController < ApplicationController
 
   def create
 
-    #Création du panier
-	  cart = Cart.create(
-      artisan: Artisan.first,
-      status: 'created'
-    )
-
-    item_id = params['id']
+    item = Item.find(params['id'])
 
   	#Création du premer cart_item
-    CartItem.create(
-  		cart: cart,
-  		item_id: Item.find(item_id).id,
-      quantity: 1,
-      price: Item.find(item_id).price
-      )
-  	redirect_back fallback_location: edit_cart_path(cart.id)
+    add_to_cart = CartItem.new( 
+      cart_id: current_cart.id,
+      item_id: item.id,
+      quantity: params['quantity'],
+      price: item.price
+    )
+    add_to_cart.save
+
+  	redirect_back fallback_location: edit_cart_path(current_cart.id)
 
   end
 
   def update
 
-    cart_item = CartItem.find(params['id'])
-    cart = Cart.find(cart_item.cart_id)
-
-    #Création du premier cart_item
-    if params['modif'] == '-'
-      cart_item.quantity -= 1
-    else
-      cart_item.quantity += 1
+    cart_item = CartItem.find(params[:id])
+    if cart_item == nil
+      CartItem.create
     end
+
+    #Actualisation de la quantité
+    cart_item.quantity += params['quantity'].to_i
 
     #Cas d'une quantité de base =1
     if cart_item.quantity == 0
       cart_item.destroy
       #Cas de réduction du dernier item à une quantité 0
-      if CartItem.where(cart_id: cart.id).count == 0
-        cart.destroy
+      if current_cart_items.count == 0
         redirect_to root_path and return
         #ajouter un message flash après la redirection
       end
@@ -46,8 +39,8 @@ class CartItemsController < ApplicationController
 
     cart_item.save
 
-    cart.status = 'updated'
-    cart.save
+    current_cart.status = 'updated'
+    current_cart.save
 
     redirect_back fallback_location: root_path
   end

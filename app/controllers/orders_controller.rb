@@ -4,20 +4,19 @@ class OrdersController < ApplicationController
   end
 
   def create
-  	cart = Cart.find(params['cart'])
 
  	# Création de l'order
   	order = Order.create(
   		delivery_address: params['address'],
-  		artisan: cart.artisan
+  		artisan: current_cart.artisan
   		)
 
   	# Création des items dans la table order_items
-  	cart.cart_items.each { |item|
+  	current_cart_items.each { |item|
   		create_order_item(item,order)
   	}
   	#Vidange du panier
-  	empty_cart(cart)
+  	empty_cart(current_cart)
 
   	redirect_to order_path(order.id)
 
@@ -31,7 +30,6 @@ class OrdersController < ApplicationController
 
 	def empty_cart(cart)
 		cart.cart_items.destroy_all
-		cart.destroy
 	end
 
 	def create_order_item(item, order)
