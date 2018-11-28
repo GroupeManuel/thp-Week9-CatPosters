@@ -19,27 +19,44 @@
               <div class="tab-content clear-style">
                 <div class="tab-pane active" id="pill-1">
                   <div class="row grid-space-10">
-                  <% @items.each do |item| %>
+                  <% Item.all.each do |item| %>
                     <div class="col-lg-3 col-md-6">
                       <div class="listing-item white-bg bordered mb-20">
                         <div class="overlay-container">
                           <div class="image_item_container">
                             <%= image_tag item.image_url, class:'image_item' %>
                           </div>
-                          <a class="overlay-link popup-img-single" href="../../assets/images/photos_sac_cafe_16.jpg"><i class="fa fa-search-plus"></i></a>
-                          <div class="overlay-to-top links">
-                            <span class="small">
-                              <a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
-                              <a href="#" class="btn-sm-link"><i class="fa fa-link pr-1"></i>View Details</a>
-                            </span>
-                          </div>
+                            <%= link_to item_path(item.id), class:"overlay-link" do %>
+                            <i class="fa fa-search-plus"></i>
+                          <% end %>
                         </div>
                         <div class="body">
                           <h3><%= link_to item.title, item_path(item.id) %></h3>
                           <p class="small"><%= item.description %></p>
                           <div class="elements-list clearfix">
                             <span class="price"><%= item.price %> €</span>
-                            <a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+
+
+                            <% begin %>
+                              <%= form_tag(cart_item_path(CartItem.find_by(cart_id: current_cart.id, item_id: item.id).id), method: "patch") do %>
+                                <%= hidden_field_tag 'id', item.id %>
+                                <%= hidden_field_tag 'quantity', 1 %>
+                                <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-sm btn-default-transparent btn-animated") do%>
+                                  Add To Cart<i class="fa fa-shopping-cart"></i>
+                                <% end %>
+                              <% end %>
+                            <% rescue %>
+                              <%= form_tag(cart_items_path, method: "create") do %>
+                                <%= hidden_field_tag 'id', item.id %>
+                                <%= hidden_field_tag 'quantity', 1 %>
+                                <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-sm btn-default-transparent btn-animated") do%>
+                                  Add To Cart<i class="fa fa-shopping-cart"></i>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+
+<!--                            <a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a> -->
+
                           </div>
                         </div>
                       </div>

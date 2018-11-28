@@ -10,8 +10,8 @@
       <div class="breadcrumb-container">
         <div class="container">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home pr-2"></i><a class="link-dark" href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Shop Product</li>
+            <li class="breadcrumb-item"><i class="fa fa-home pr-2"></i><a class="link-dark" href="/"></a></li>
+            <li class="breadcrumb-item active"><%= @item.title %></li>
           </ol>
         </div>
       </div>
@@ -30,7 +30,11 @@
 
               <!-- page-title start -->
               <!-- ================ -->
-              <h1 class="page-title"><%= @item.title %></h1>
+              <div class='row'> 
+                <h1 class="page-title mr-auto"><%= @item.title %></h1>
+                <span class="product price pull-right"><i class="fa fa-tag pr-10"></i><%= @item.price %> €/u</span>
+              </div>
+
               <div class="separator-2"></div>
               <!-- page-title end -->
 
@@ -39,75 +43,35 @@
                 
                   <%= image_tag @item.image_url %>
                   
-                  <!-- Tab panes -->
-                  <div class="tab-content clear-style">
-                    <div class="tab-pane active" id="pill-1">
-                      <div class="slick-carousel content-slider-with-large-controls">
-                        <div class="overlay-container overlay-visible">
-                          <img src="../../assets/images/product-1.jpg" alt="">
-                          <a href="images/product-1.jpg" class="slick-carousel--popup-img overlay-link" title="image title"><i class="fa fa-plus"></i></a>
-                        </div>
-                        <div class="overlay-container overlay-visible">
-                          <img src="../../assets/images/product-1.jpg" alt="">
-                          <a href="images/product-1-2.jpg" class="slick-carousel--popup-img overlay-link" title="image title"><i class="fa fa-plus"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tab-pane" id="pill-2">
-                      <div class="overlay-container">
-                        <img src="images/page-about-2.jpg" alt="">
-                        <a class="overlay-link" href="#"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                  </div>
                   <!-- pills end -->
                 </div>
                 <div class="col-lg-8 pv-30">
                   <h2 class="mt-4">Description</h2>
                   <p><%= @item.description %></p>
                   <hr class="mb-10">
-                  <div class="clearfix mb-20">
-                    <span>
-                      <i class="fa fa-star text-default"></i>
-                      <i class="fa fa-star text-default"></i>
-                      <i class="fa fa-star text-default"></i>
-                      <i class="fa fa-star text-default"></i>
-                      <i class="fa fa-star"></i>
-                    </span>
-                    <a href="#" class="wishlist"><i class="fa fa-heart-o pl-10 pr-1"></i>Wishlist</a>
-                    <ul class="pl-20 pull-right social-links circle small clearfix margin-clear animated-effect-1">
-                      <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                      <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
-                  </div>
-                    <form class="clearfix row grid-space-10">
-                        <div class="form-group col-lg-4">
-                          <label>Quantity</label>
-                          <input type="text" class="form-control" value="1">
-                        </div>
-                        <div class="form-group col-lg-4">
-                          <label>Color</label>
-                          <select class="form-control">
-                            <option>Red</option>
-                            <option>White</option>
-                            <option>Black</option>
-                            <option>Blue</option>
-                            <option>Orange</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-lg-4">
-                          <label>Size</label>
-                          <select class="form-control">
-                            <option>5.3"</option>
-                            <option>5.7"</option>
-                          </select>
-                        </div>
-                    </form>
-                  <div class="light-gray-bg p-20 bordered clearfix">
-                    <span class="product price"><i class="fa fa-tag pr-10"></i>$99.00</span>
-                    <div class="product elements-list pull-right clearfix">
-                      <input type="submit" value="Add to Cart" class="margin-clear btn btn-default">
+
+                    <% begin %>
+                      <%= form_tag(cart_item_path(CartItem.find_by(cart_id: current_cart.id, item_id: params[:id]).id), method: "patch") do %>
+                      <div class ='row align-items-center'>
+
+                          <span>Quantity</span> <%= text_field_tag 'quantity','1', class:"form-group mb-0 col-lg-1 form-control ml-2 pl-2 mr-auto" %>
+                          <%= hidden_field_tag 'id', @item.id %>
+                          <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
+                            Add To Cart<i class="fa fa-shopping-cart"></i>
+                          </div>
+                          <% end %> 
+                        <% end %>
+                    <% rescue %>
+                      <%= form_tag(cart_items_path, method: "create") do %>
+                       <div class ='row'> 
+                          Quantity <%= text_field_tag 'quantity','1', class:"text-right w-100 form-group col-lg-1 form-control pl-2 mr-auto" %>
+                          <%= hidden_field_tag 'id', @item.id %>
+                          <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
+                            Add To Cart<i class="fa fa-shopping-cart"></i>
+                          </div>
+                          <% end %> 
+                        <% end %>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -119,215 +83,5 @@
         </div>
       </section>
       <!-- main-container end -->
-
-      <!-- section start -->
-      <!-- ================ -->
-      <section class="pv-30 light-gray-bg">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs style-4" role="tablist">
-                <li class="nav-item"><a class="nav-link active" href="#h2tab2" role="tab" data-toggle="tab"><i class="fa fa-files-o pr-1"></i>Specifications</a></li>
-                <li class="nav-item"><a class="nav-link" href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-1"></i>(3) Reviews</a></li>
-              </ul>
-              <!-- Tab panes -->
-              <div class="tab-content padding-top-clear padding-bottom-clear">
-                <div class="tab-pane active" id="h2tab2">
-                  <h4 class="space-top">Specifications</h4>
-                  <hr>
-                  <dl class="row">
-                    <dt class="col-sm-3 text-sm-right">Consectetur</dt>
-                    <dd class="col-sm-9">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</dd>
-                    <dt class="col-sm-3 text-sm-right">Culla</dt>
-                    <dd class="col-sm-9">Adipisci autem illo hic itaque nulla velit quod laboriosam ipsum in illum!</dd>
-                    <dt class="col-sm-3 text-sm-right">Quas</dt>
-                    <dd class="col-sm-9">Velit mollitia vel nemo, repudiandae quas nisi consectetur maiores beatae.</dd>
-                    <dt class="col-sm-3 text-sm-right">Sapiente</dt>
-                    <dd class="col-sm-9">Dolor, architecto, accusamus. Explicabo, culpa hic sapiente amet libero, recusandae laudantium consequatur velit possimus ratione quo. Ipsum maxime officia quasi quos magni!</dd>
-                    <dt class="col-sm-3 text-sm-right">Dignissimos</dt>
-                    <dd class="col-sm-9">Odio cum deleniti mollitia, quisquam dignissimos voluptatem, unde rem alias.</dd>
-                    <dt class="col-sm-3 text-sm-right">Adipisicing</dt>
-                    <dd class="col-sm-9">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora rerum veritatis nam blanditiis.</dd>
-                    <dt class="col-sm-3 text-sm-right">Werspiciatis</dt>
-                    <dd class="col-sm-9">Rem nostrum sit magnam debitis quidem perspiciatis fuga fugit.</dd>
-                  </dl>
-                  <hr>
-                </div>
-                <div class="tab-pane" id="h2tab3">
-                  <!-- comments start -->
-                  <div class="comments margin-clear space-top">
-                    <!-- comment start -->
-                    <div class="comment clearfix">
-                      <div class="comment-avatar">
-                        <img class="rounded-circle" src="images/avatar.jpg" alt="avatar">
-                      </div>
-                      <header>
-                        <h3>Amazing!</h3>
-                        <div class="comment-meta"> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star"></i> | Today, 12:31</div>
-                      </header>
-                      <div class="comment-content">
-                        <div class="comment-body clearfix">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                          <a href="blog-post.html" class="btn-sm-link link-dark pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- comment end -->
-
-                    <!-- comment start -->
-                    <div class="comment clearfix">
-                      <div class="comment-avatar">
-                        <img class="rounded-circle" src="images/avatar.jpg" alt="avatar">
-                      </div>
-                      <header>
-                        <h3>Really Nice!</h3>
-                        <div class="comment-meta"> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star"></i> | Today, 10:31</div>
-                      </header>
-                      <div class="comment-content">
-                        <div class="comment-body clearfix">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                          <a href="blog-post.html" class="btn-sm-link link-dark pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- comment end -->
-
-                    <!-- comment start -->
-                    <div class="comment clearfix">
-                      <div class="comment-avatar">
-                        <img class="rounded-circle" src="images/avatar.jpg" alt="avatar">
-                      </div>
-                      <header>
-                        <h3>Worth to Buy!</h3>
-                        <div class="comment-meta"> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star"></i> | Today, 09:31</div>
-                      </header>
-                      <div class="comment-content">
-                        <div class="comment-body clearfix">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                          <a href="blog-post.html" class="btn-sm-link link-dark pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- comment end -->
-                  </div>
-                  <!-- comments end -->
-                </div>
-              </div>
-            </div>
-
-            <!-- sidebar start -->
-            <!-- ================ -->
-            <aside class="col-lg-4 col-xl-3 ml-xl-auto">
-              <div class="sidebar">
-                <div class="block clearfix">
-                  <h3 class="title">Related Products</h3>
-                  <div class="separator-2"></div>
-                  <div class="media margin-clear">
-                    <div class="d-flex pr-2">
-                      <div class="overlay-container">
-                        <img class="media-object" src="images/product-1.jpg" alt="blog-thumb">
-                        <a href="shop-product.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading"><a href="shop-product.html">Lorem ipsum dolor sit amet</a></h6>
-                      <p class="margin-clear">
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                      </p>
-                      <p class="price">$99.00</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="media margin-clear">
-                    <div class="d-flex pr-2">
-                      <div class="overlay-container">
-                        <img class="media-object" src="images/product-6.jpg" alt="blog-thumb">
-                        <a href="shop-product.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading"><a href="shop-product.html">Eum repudiandae ipsam</a></h6>
-                      <p class="margin-clear">
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star"></i>
-                      </p>
-                      <p class="price">$299.00</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="media margin-clear">
-                    <div class="d-flex pr-2">
-                      <div class="overlay-container">
-                        <img class="media-object" src="images/product-7.jpg" alt="blog-thumb">
-                        <a href="shop-product.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading"><a href="shop-product.html">Quia aperiam velit fuga</a></h6>
-                      <p class="margin-clear">
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star"></i>
-                      </p>
-                      <p class="price">$9.99</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="media margin-clear">
-                    <div class="d-flex pr-2">
-                      <div class="overlay-container">
-                        <img class="media-object" src="images/product-8.jpg" alt="blog-thumb">
-                        <a href="shop-product.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading"><a href="shop-product.html">Fugit non natus officiis</a></h6>
-                      <p class="margin-clear">
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star text-default"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </p>
-                      <p class="price">$399.00</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </aside>
-            <!-- sidebar end -->
-
-          </div>
-        </div>
-      </section>
-      <!-- section end -->
-
-        <!-- .subfooter start -->
-        <!-- ================ -->
-        <div class="subfooter">
-          <div class="container">
-            <div class="subfooter-inner">
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="text-center">Copyright © 2018. All rights reserved.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- .subfooter end -->
-
-      </footer>
-      <!-- footer end -->
     </div>
     <!-- page-wrapper end -->
