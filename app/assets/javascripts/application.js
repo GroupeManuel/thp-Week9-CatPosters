@@ -20,10 +20,6 @@
 //= require plugins/jquery.min
 //= require bootstrap/js/bootstrap.bundle.min
 
-// jQuery Revolution Slider
-//= require plugins/rs-plugin-5/js/jquery.themepunch.tools.min
-//= require plugins/rs-plugin-5/js/jquery.themepunch.revolution.min
-
 // Isotope javascript
 //= require plugins/isotope/imagesloaded.pkgd.min
 //= require plugins/isotope/isotope.pkgd.min
