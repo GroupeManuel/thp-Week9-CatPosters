@@ -18,7 +18,6 @@
 
 // Jquery and Bootstap core js files 
 //= require plugins/jquery.min
-//= require plugins/jquery
 //= require bootstrap/js/bootstrap.bundle.min
 
 // Isotope javascript
