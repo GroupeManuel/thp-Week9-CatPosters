@@ -478,7 +478,7 @@ visibility:visible;
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
+  filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .dione .tp-bullet-title:after {
@@ -642,7 +642,7 @@ website:    http://www.themepunch.com
     background: -o-linear-gradient(top,  #555555 0%,#222222 100%); /* opera 11.10+ */
     background: -ms-linear-gradient(top,  #555555 0%,#222222 100%); /* ie10+ */
     background: linear-gradient(to bottom,  #555555 0%,#222222 100%); /* w3c */
-    filter: progid:dximagetransform.microsoft.gradient( startcolorstr="#555555", endcolorstr="#222222",gradienttype=0 ); /* ie6-9 */
+    filter: progid;dximagetransform.microsoft.gradient( startcolorstr="#555555", endcolorstr="#222222",gradienttype=0 ); /* ie6-9 */
 	padding:10px 15px;
 	margin-left:-15px;margin-top:-10px;
 	box-sizing:content-box;
@@ -667,7 +667,7 @@ background: -webkit-linear-gradient(top,  #e5e5e5 0%,#999999 100%); /* chrome10+
 background: -o-linear-gradient(top,  #e5e5e5 0%,#999999 100%); /* opera 11.10+ */
 background: -ms-linear-gradient(top,  #e5e5e5 0%,#999999 100%); /* ie10+ */
 background: linear-gradient(to bottom,  #e5e5e5 0%,#999999 100%); /* w3c */
-filter: progid:dximagetransform.microsoft.gradient( startcolorstr="#e5e5e5", endcolorstr="#999999",gradienttype=0 ); /* ie6-9 */
+filter: progid;dximagetransform.microsoft.gradient( startcolorstr="#e5e5e5", endcolorstr="#999999",gradienttype=0 ); /* ie6-9 */
   border:1px solid #555;
   width:12px;height:12px;
 }
@@ -800,7 +800,7 @@ website:    http://www.themepunch.com
     background: -o-linear-gradient(top,  #777777 0%,#666666 100%); 
     background: -ms-linear-gradient(top,  #777777 0%,#666666 100%); 
     background: linear-gradient(to bottom,  #777777 0%,#666666 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#777777", 
+    filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#777777", 
     endColorstr="#666666",GradientType=0 ); 
 	padding:10px;
 	margin-left:-10px;margin-top:-10px;
@@ -827,7 +827,7 @@ website:    http://www.themepunch.com
     background: -o-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #ffffff 0%,#e1e1e1 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", 
+    filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", 
     endColorstr="#e1e1e1",GradientType=0 ); /* IE6-9 */
 
 }
@@ -899,7 +899,7 @@ website:    http://www.themepunch.com
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
+  filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  }
 .gyges .tp-thumb-title:after {
         content:" ";
@@ -1031,7 +1031,7 @@ website:    http://www.themepunch.com
   width:100px;height:100px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  -ms-filter: "progid:dximagetransform.microsoft.alpha(opacity=0)";
+  -ms-filter: "progid;dximagetransform.microsoft.alpha(opacity=0)";
   filter: alpha(opacity=0);
   -moz-opacity: 0.0;
   -khtml-opacity: 0.0;
@@ -1051,7 +1051,7 @@ website:    http://www.themepunch.com
 }
 
 .hades:hover .tp-arr-allwrapper {
-   -ms-filter: "progid:dximagetransform.microsoft.alpha(opacity=100)";
+   -ms-filter: "progid;dximagetransform.microsoft.alpha(opacity=100)";
   filter: alpha(opacity=100);
   -moz-opacity: 1;
   -khtml-opacity: 1;
@@ -1178,7 +1178,7 @@ background:#000;
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
+  filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .hades .tp-thumb-title:after {
@@ -1805,7 +1805,7 @@ website:    http://www.themepunch.com
     background: -o-linear-gradient(top,  #999999 0%,#e1e1e1 100%); /* opera 11.10+ */
     background: -ms-linear-gradient(top,  #999999 0%,#e1e1e1 100%); /* ie10+ */
     background: linear-gradient(to bottom,  #999999 0%,#e1e1e1 100%); /* w3c */
-    filter: progid:dximagetransform.microsoft.gradient( 
+    filter: progid;dximagetransform.microsoft.gradient( 
     startcolorstr="#999999", endcolorstr="#e1e1e1",gradienttype=0 ); /* ie6-9 */
 	border:3px solid #e5e5e5;
 	border-radius:50%;
@@ -2027,7 +2027,7 @@ website:    http://www.themepunch.com
   background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
+  filter: progid;DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
  
       }
 .metis .tp-bullet-title:after {
