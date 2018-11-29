@@ -19,7 +19,7 @@
                   <!-- logo -->
                   <div id="logo" class="logo">
                     <%= link_to root_path do %>
-                      <img id="logo_img" src="../../assets/images/logo_dark_cyan.png" alt="The Project">
+                      <img id="logo_img" src="../../assets/images/kraft.png" alt="kraft">
                     <% end %>
                   </div>
                 </div>
@@ -63,7 +63,7 @@
                           <li><%= link_to 'Login', new_artisan_session_path, class: "nav-link" %></li>
                           <li><%= link_to 'Signup', new_artisan_registration_path, class: "nav-link" %></li>
                           <% else %>
-                          <li><%= link_to 'My profile', root_path, class: "nav-link"%></li>
+                          <li><%= link_to 'My profile', artisan_path(current_artisan.id), class: "nav-link"%></li>
                           <li><%= link_to 'Logout', destroy_artisan_session_path, class: "nav-link", method: :delete %></li>
                           <% end %>
                         </ul>
@@ -131,9 +131,9 @@
                    <div class="btn-group">
                     <button type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" id="header-drop-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right dropdown-animation" aria-labelledby="header-drop-3">
-                      <li><%= link_to 'My profile', root_path, class: "nav-link"%></li>
+                      <li><%= link_to 'My profile', artisan_path(current_artisan.id), class: "nav-link"%></li>
                       <li><%= link_to 'Logout', destroy_artisan_session_path, class: "nav-link", method: :delete %></li>
-                    </ul>
+                    </ul> 
                   </div>
                 </div>
                 <% end %>

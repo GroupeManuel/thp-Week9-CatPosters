@@ -32,40 +32,39 @@
               <!-- ================ -->
               <div class='row'> 
                 <h1 class="page-title mr-auto"><%= @item.title %></h1>
-                <span class="product price pull-right"><i class="fa fa-tag pr-10"></i><%= @item.price %> €/u</span>
               </div>
 
               <div class="separator-2"></div>
               <!-- page-title end -->
 
               <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                 
                   <%= image_tag @item.image_url %>
                   
                   <!-- pills end -->
                 </div>
-                <div class="col-lg-8 pv-30">
+                <div class="col-lg-6">
                   <h2 class="mt-4">Description</h2>
                   <p><%= @item.description %></p>
                   <hr class="mb-10">
 
 
                     <% begin %>
-                      <%= form_tag(cart_item_path(CartItem.find_by(cart_id: current_cart.id, item_id: params[:id]).id), method: "patch") do %>
+                      <%= form_tag(cart_item_pathath(CartItem.find_by(cart_id: current_cart.id, item_id: params[:id]).id), method: "patch") do %>
                       <div class ='row align-items-center'>
-
                           <span>Quantity</span> <%= text_field_tag 'quantity','1', class:"form-group mb-0 col-lg-1 form-control ml-2 pl-2 mr-auto" %>
                           <%= hidden_field_tag 'selected_item', @item.id %>
                           <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
+                           <span class="product price pull-right"> <%= @item.price %> €</span>
                             Add To Cart<i class="fa fa-shopping-cart"></i>
                           </div>
                           <% end %> 
                         <% end %>
                     <% rescue %>
                       <%= form_tag(cart_items_path, method: "create") do %>
-                       <div class ='row'> 
-                          Quantity <%= text_field_tag 'quantity','1', class:"text-right w-100 form-group col-lg-1 form-control pl-2 mr-auto" %>
+                       <div class ='row_description'> 
+                          Quantity <%= text_field_tag 'quantity' %>
                           <%= hidden_field_tag 'id', @item.id %>
                           <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
                             Add To Cart<i class="fa fa-shopping-cart"></i>
