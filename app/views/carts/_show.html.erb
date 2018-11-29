@@ -6,6 +6,7 @@
         <table class="table cart table-hover table-colored">
           <thead>
             <tr>
+              <th></th>
               <th>Quantity</th>
               <th>Product</th>
               <th>Unit Price</th>
@@ -17,6 +18,11 @@
             <tbody>                
             <% @items.each do |cart_item| %>
            <tr>
+            <td>
+              <div class="col-6 align-center">
+                  <%= link_to item_path(Item.find(cart_item.item_id)) do %> <%= image_tag Item.find(cart_item.item_id).image_url %> <% end %>
+              </div>
+            </td>
              <td> 
 
               <div class="quantity_row "> 
@@ -31,7 +37,7 @@
              </div>
             </td>
             <td class ="product">
-             <h5><%= Item.find(cart_item.item_id).title %></h5>
+             <%= link_to item_path(Item.find(cart_item.item_id)) do %> <h5><%= Item.find(cart_item.item_id).title %></h5><% end %>
            </td>
            <td class ="price"> <%= cart_item.price %> €</td>
         <td class="amount"><%= cart_item.quantity * cart_item.price %> €</td>
@@ -51,7 +57,7 @@
     <tfooter>
       <td class="total-quantity text-right" colspan="12">
         <%= link_to orders_path, method: :post, return:true do %>
-          <button class='btn btn-success'><i class="fa fa-check"></i> Confirm cart</button>
+        <button class='btn btn-success'><i class="fa fa-check"></i> Confirm cart</button>
         <% end %>
       </td>
     </tfooter>

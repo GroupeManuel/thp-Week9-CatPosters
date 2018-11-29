@@ -1,14 +1,53 @@
-<h4>Merci pour votre commande</h4>
+<!-- scrollToTop -->
+<!-- ================ -->
+<div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
 
-<h5>Résumé :</h5>
+<!-- page wrapper start -->
+<!-- ================ -->
+<div class="page-wrapper">
 
-<% @order.order_items.each do |item| %>
-<div class='row'>
-	<%= item.quantity %> <%= Item.find(item.id).title %> | <%= item.price %> € |  <%= item.price * item.quantity %> € 
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+<div class="container">
+  <div class="row justify-content-lg-center">
+
+    <!-- main start -->
+    <!-- ================ -->
+    <div class="main col-lg-8">
+
+      <!-- page-title start -->
+      <!-- ================ -->
+      <h1 class="page-title text-center">Thank You <i class="fa fa-smile-o pl-10"></i></h1>
+      <div class="separator"></div>
+      <!-- page-title end -->
+
+      <p class="lead text-center">Thank you very much for your order! We hope you will enjoy using those beautiful materials. By recycling them, you are decreasing our Global waste and making good to the planet.</p>
+
+      <p class="text-center">
+        <a href="https://ecommercecafe-delivery.herokuapp.com/" class="btn btn-default btn-lg">Continue Shopping!</a> 
+      </p>
+
+    </div>
+    <!-- main end -->
+
+  </div>
 </div>
-<% end %>
+</section>
+<!-- main-container end -->
 
-<strong>Total : <%= @order.total_price %> € </strong>
+<!-- SI L'UN DE NOUS EST CHAUD, IL PEUT ADAPTER LE CODE CI DESSOUS AU TEMPLATE - LE TEMPLATE SHOP CHECKOUT REVIEW SEMBLE BIEN -->
 
-<h5>Adresse de livraison</h5>
-<%= @order.delivery_address %>
+<!--       <% @order.order_items.each do |item| %>
+		<div class='row'>
+			<%= item.quantity %> <%= Item.find(item.id).title %> | <%= item.price %> € |  <%= item.price * item.quantity %> € 
+		</div>
+		<% end %>
+
+		<strong>Total : <%= @order.total_price %> € </strong>
+
+		<h5>Adresse de livraison</h5>
+		<%= @order.delivery_address %>
+
+ -->

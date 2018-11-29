@@ -76,22 +76,24 @@
                             <table class="table table-hover">
                               <thead>
                                 <tr>
-                                  <th class="quantity">QTY</th>
+                                  <th class="quantity">Qty</th>
                                   <th class="product">Product</th>
                                   <th class="amount">Subtotal</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <% current_cart_items.each do |item| %>
-                                <tr>
-                                  <td class="quantity"> <%= item.quantity %> </td>
-                                  <td class="product"><a href="shop-product.html"><%= Item.find(item.item_id).title %></a></td>
-                                  <td class="amount"><%= item.price * item.quantity %> </td>
-                                </tr>
-                                <% end %>
+                                <% unless current_cart_count == 0 %>
+                                  <% current_cart_items.each do |item| %>
+                                  <tr>
+                                    <td class="quantity"> <%= item.quantity %> </td>
+                                    <td class="product"><a href="shop-product.html"><%= Item.find(item.item_id).title %></a></td>
+                                    <td class="amount"><%= item.price * item.quantity %> €</td>
+                                  </tr>
+                                  <% end %>
+                                <% end %> 
                                 <tr>
                                   <td class="total-quantity" colspan="2">Total <%= current_cart_count %> Items</td>
-                                  <td class="total-amount"><%= current_cart_price %> </td>
+                                  <td class="total-amount"><%= current_cart_price %> €</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -145,22 +147,24 @@
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th class="quantity">QTY</th>
+                              <th class="quantity">Qty</th>
                               <th class="product">Product</th>
                               <th class="amount">Subtotal</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <% current_cart_items.each do |item| %>
-                            <tr>
-                              <td class="quantity"> <%= item.quantity %> </td>
-                              <td class="product"><%= link_to Item.find(item.item_id).title, item_path(item.item_id) %></a></td>
-                              <td class="amount"><%= item.price * item.quantity %> </td>
-                            </tr>
+                            <% unless current_cart_count == 0 %>
+                              <% current_cart_items.each do |item| %>
+                              <tr>
+                                <td class="quantity"> <%= item.quantity %> </td>
+                                <td class="product"><%= link_to Item.find(item.item_id).title, item_path(item.item_id) %></a></td>
+                                <td class="amount"><%= item.price * item.quantity %> €</td>
+                              </tr>
+                              <% end %>
                             <% end %>
                             <tr>
                               <td class="total-quantity" colspan="2">Total <%= current_cart_count %> Items</td>
-                              <td class="total-amount"><%= current_cart_price %> </td>
+                              <td class="total-amount"><%= current_cart_price %> €</td>
                             </tr>
                           </tbody>
                         </table>

@@ -10,8 +10,8 @@
       <div class="breadcrumb-container">
         <div class="container">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home pr-2"></i><a class="link-dark" href="/"></a></li>
-            <li class="breadcrumb-item active"><%= @item.title %></li>
+            <li class="breadcrumb-item"><%= link_to root_path, class:"link-dark" do %><i class="fa fa-home pr-2"></i><% end %></li>
+            <li class="breadcrumb-item active"><%= link_to @item.title, item_path(@item.id) %></li>
           </ol>
         </div>
       </div>
@@ -42,21 +42,24 @@
                 
                   <%= image_tag @item.image_url %>
                   
-                  <!-- pills end -->
                 </div>
                 <div class="col-lg-6">
-                  <h2 class="mt-4">Description</h2>
+                  <div class= 'row mt-4'>
+                    <h2 class='mr-auto'>Description</h2>
+                    <div class="product price"> <%= @item.price %> €</div>
+                  </div>
+
                   <p><%= @item.description %></p>
                   <hr class="mb-10">
 
 
                     <% begin %>
-                      <%= form_tag(cart_item_pathath(CartItem.find_by(cart_id: current_cart.id, item_id: params[:id]).id), method: "patch") do %>
+                      <%= form_tag(cart_item_path(CartItem.find_by(cart_id: current_cart.id, item_id: params[:id]).id), method: "patch") do %>
                       <div class ='row align-items-center'>
                           <span>Quantity</span> <%= text_field_tag 'quantity','1', class:"form-group mb-0 col-lg-1 form-control ml-2 pl-2 mr-auto" %>
                           <%= hidden_field_tag 'selected_item', @item.id %>
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                           <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
-                           <span class="product price pull-right"> <%= @item.price %> €</span>
                             Add To Cart<i class="fa fa-shopping-cart"></i>
                           </div>
                           <% end %> 
@@ -64,8 +67,9 @@
                     <% rescue %>
                       <%= form_tag(cart_items_path, method: "create") do %>
                        <div class ='row_description'> 
-                          Quantity <%= text_field_tag 'quantity' %>
-                          <%= hidden_field_tag 'id', @item.id %>
+                          Quantity <%= text_field_tag 'quantity', '1', class:"form-group mb-0 col-lg-1 form-control ml-2 pl-2 mr-auto" %>
+                          <%= hidden_field_tag 'selected_item', @item.id %>
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                           <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-default-transparent btn-animated") do%>
                             Add To Cart<i class="fa fa-shopping-cart"></i>
                           </div>

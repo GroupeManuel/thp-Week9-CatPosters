@@ -1,3 +1,4 @@
+
 <!-- scrollToTop -->
     <!-- ================ -->
     <div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
@@ -40,6 +41,7 @@
                               <%= form_tag(cart_item_path(CartItem.find_by(cart_id: current_cart.id, item_id: item.id).id), method: "patch") do %>
                                 <%= hidden_field_tag 'selected_item', item.id %>
                                 <%= hidden_field_tag 'quantity', 1 %>
+                                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                                 <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-sm btn-default-transparent btn-animated") do%>
                                   Add To Cart<i class="fa fa-shopping-cart"></i>
                                 <% end %>
@@ -48,6 +50,7 @@
                               <%= form_tag(cart_items_path, method: "create") do %>
                                 <%= hidden_field_tag 'selected_item', item.id %>
                                 <%= hidden_field_tag 'quantity', 1 %>
+                                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                                 <%= button_tag(type: "submit", class: "pull-right margin-clear btn btn-sm btn-default-transparent btn-animated") do%>
                                   Add To Cart<i class="fa fa-shopping-cart"></i>
                                 <% end %>
