@@ -12,8 +12,8 @@ class Mailing
 	end
 
 	def new_buyer(email)
-#		@gibbon.lists("c3c516a4aa").segments("xx").members(body: {email_address: email})
-
+		member_id = @gibbon.lists("c3c516a4aa").segments("11385").members(body: {email_address: email}).retrieve
+		@gibbon.lists("c3c516a4aa").segments("11385").members(member_id).create
 	end
 
 	def send_automated_mail
@@ -34,3 +34,10 @@ class Mailing
 	end
 
 end
+
+#useful info 
+# https://github.com/amro/gibbon
+# https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/
+# https://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-tags/
+# @body={:members=>[{:id=>"506e38eec85b63d51c4d69ca3f739efa", :email_address=>"manueltrinquet@gmail.com", :unique_email_id=>"b6e7bb97a6"
+# Gibbon::Request.new.lists("c3c516a4aa").members("506e38eec85b63d51c4d69ca3f739efa").update(body: {segments: {"11385": true}})	
