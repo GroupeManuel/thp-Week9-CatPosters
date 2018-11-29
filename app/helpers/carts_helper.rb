@@ -1,16 +1,18 @@
+
 module CartsHelper
-	
+
 	def current_cart
-		if Cart.find_by(artisan_id:Artisan.first.id) == nil
+		if artisan_signed_in? && Cart.find_by(artisan_id:current_artisan.id) != nil
+			return Cart.find_by(artisan_id:current_artisan.id)
+		elsif artisan_signed_in? && Cart.find_by(artisan_id:current_artisan.id) == nil
 			new_cart = Cart.create(
-				artisan_id:Artisan.first.id,
-		      	status: 'created'
-				)
+					artisan_id: current_artisan.id,
+			      	status: 'created'
+					)
 			puts 'Cart #{new_cart.id} just created' 
 			return new_cart
 		else
-			puts 'Cart #{Cart.find_by(artisan_id:Artisan.first.id).id} just selected' 
-			return Cart.find_by(artisan_id:Artisan.first.id)
+			return @default_cart
 		end
 	end
 
