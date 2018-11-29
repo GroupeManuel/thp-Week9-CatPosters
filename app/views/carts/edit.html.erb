@@ -1,5 +1,10 @@
   <div class="main-container">
-    <%= render "show" %>
-    <%= render "shipping" %>
-    <%= render "payment" %>
+
+  	<% if current_cart_count == 0 %>
+  		<h2>Votre panier est vide</h2>
+  	<% else %>
+		<%= render "show" %>w
+		<%= render "shipping" %>
+		<%= render "payment" %>
+    <% end %>
   </div>
