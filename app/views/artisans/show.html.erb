@@ -1,4 +1,4 @@
-     <div class= personal_info> 
+     <div class= 'personal_info'> 
             <h3 class="title">Account info</h3>
              <form>
                 <div class="form-group">
@@ -15,7 +15,7 @@
 
 
 
-        <div class= shipping_info> 
+        <div class= 'shipping_info'> 
             <h3 class="title">Shipping Info</h3>
              <form>
                 <div class="form-group">
@@ -39,8 +39,13 @@
               </form>       
           </div>
 
+        <div class='shipping_info'> 
+            <h3 class="title">My orders</h3>
+            <div class="separator-2"></div>
 
-
-              
-
-	
+            <% if current_artisan.orders.count > 0 %>
+              <% render 'order/index' %>
+            <% else %>
+              <h4 class='text-center'>You have no past order</h4>
+            <% end %> 
+          </div>

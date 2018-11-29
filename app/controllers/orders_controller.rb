@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
   			quantity: item.quantity,
   			item_id: item.id,
   			price: item.price, 
-  			order: order
+  			order_id: order.id
   			)
 	end 
 end

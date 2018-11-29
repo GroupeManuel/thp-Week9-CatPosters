@@ -1,6 +1,7 @@
 
 module CartsHelper
 
+
 	def current_cart
 		if artisan_signed_in? && Cart.find_by(artisan_id:current_artisan.id) != nil
 			return Cart.find_by(artisan_id:current_artisan.id)
@@ -9,38 +10,58 @@ module CartsHelper
 					artisan_id: current_artisan.id,
 			      	status: 'created'
 					)
-			puts 'Cart #{new_cart.id} just created' 
 			return new_cart
 		else
-			return @default_cart
+			if Cart.find_by(status:'default') == nil
+				cart = Cart.create!(status:'default')
+				return cart
+			else
+				return Cart.find_by(status:'default')
+			end
 		end
 	end
 
 	def current_cart_items
-		current_cart.cart_items
+		if artisan_signed_in?
+			current_cart.cart_items
+		else
+			{}
+		end
 	end
 
 	def show_current_cart
-		current_cart_items.each {|item|
-			puts Item.find(item.item_id).title
-		}
+		if artisan_signed_in?
+			current_cart_items.each {|item|
+				puts Item.find(item.item_id).title
+			}
+		else 
+			return ['']
+		end
 	end
 
 
 	def current_cart_price
-	    total_price = 0
-	    current_cart_items.each { |item|
-	      total_price += item.quantity * item.price 
-	    }
-	    return total_price
+		if artisan_signed_in?
+		    total_price = 0
+		    current_cart_items.each { |item|
+		      total_price += item.quantity * item.price 
+		    }
+		    return total_price
+		else 
+			return 0
+		end
 	end
 
 	def current_cart_count
-	    total_count = 0
-	    current_cart_items.each { |item|
-	      total_count += item.quantity
-	    }
-	    return total_count
+		if artisan_signed_in?
+		    total_count = 0
+		    current_cart_items.each { |item|
+		      total_count += item.quantity
+		    }
+		    return total_count
+		else
+			return 0
+		end
 	end
 
 end

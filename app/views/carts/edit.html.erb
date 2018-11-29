@@ -1,12 +1,24 @@
-  <div class="main-container">
-
-  	<% if current_cart_count == 0 %>
-  		<h2>Votre panier est vide</h2>
-  	<% else %>
-		<%= render "show" %>w
-		<%= render "shipping" %>
-		<%= render "payment" %>
-    <% end %>
+<div class="breadcrumb-container">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to root_path, class:"link-dark" do %><i class="fa fa-home pr-2"></i><% end %></li>
+      <li class="breadcrumb-item active"><%= link_to 'My Cart', edit_cart_path(current_cart.id) %></li>
+    </ol>
   </div>
+</div>
 
-	
+<div class="main-container">
+
+	<% if current_cart_count == 0 %>
+		<h2>Votre panier est vide</h2>
+	<% else %>
+	<%= render "show" %>
+  <div id="shipping">
+    <%= render "shipping" %>
+  </div>
+  <div id="payment">
+  	<%= render "payment" %>
+  </div>
+  <% end %>
+</div>
+
