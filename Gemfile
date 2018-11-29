@@ -11,6 +11,8 @@ gem 'devise'
 gem "jquery-rails", "~> 4.3"
 gem 'webpacker'
 gem 'font-awesome-rails'
+gem 'webpacker' 
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

@@ -18,6 +18,7 @@
             <% @items.each do |cart_item| %>
            <tr>
              <td> 
+
               <div class="quantity_row "> 
               <%= link_to cart_item_path(cart_item.id,quantity:'-1'), method: 'patch' do %>          
                <i class="fa fa-minus"></i>
@@ -55,9 +56,6 @@
       </td>
     </tfooter>
   </table>
-         
-
-      </div>
     </div>	
   </div>
 </div>

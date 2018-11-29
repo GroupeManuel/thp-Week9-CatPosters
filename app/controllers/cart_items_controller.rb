@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 
   def create
 
-    item = Item.find(params['id'])
+    item = Item.find(params['selected_item'])
 
   	#Création du premer cart_item
     add_to_cart = CartItem.new( 
@@ -19,9 +19,10 @@ class CartItemsController < ApplicationController
 
   def update
 
-    cart_item = CartItem.find(params[:id])
+    puts current_cart.id
+    cart_item = CartItem.find_by(cart_id: current_cart.id, item_id: params[:selected_item])
     if cart_item == nil
-      CartItem.create
+      create
     end
 
     #Actualisation de la quantité
