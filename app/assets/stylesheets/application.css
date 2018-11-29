@@ -60,13 +60,13 @@
 
 .actions {
     margin-top: 25px;
-}
+}   
 
  /* PAGE INDEX DES ITEMS */
 
 .image_item_container {
-    height: 300px;
-    width: 250px;
+    max-width: 100%;    
+    height: auto;
 }
 
 .image_item {
@@ -74,3 +74,26 @@
     min-width: 100%;
     object-fit: cover;
 }
+
+.header-dropdown-buttons {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.page-title {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.mt-4, .my-4 {
+   margin: none;    
+}   
+
+.form-control{
+    margin-left: 10px;
+}
+
+
+
+

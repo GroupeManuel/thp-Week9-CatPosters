@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'artisans/edit'
+  get 'artisans/update'
+  get 'artisans/create'
 	get '/', to: 'items#index', as: 'root'
   	devise_for :artisans
 	resources :artisans, only: [:edit, :show, :update]
