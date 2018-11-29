@@ -18,6 +18,10 @@ class OrdersController < ApplicationController
   	#Vidange du panier
   	empty_cart(current_cart)
 
+    #Envoi email confirmation : récupère email puis active le mailing.rb
+    buyer_email = Artisan.find(Order.last.artisan_id).email
+    Mailing.new.new_buyer(buyer_email)
+
   	redirect_to order_path(order.id)
 
   end
