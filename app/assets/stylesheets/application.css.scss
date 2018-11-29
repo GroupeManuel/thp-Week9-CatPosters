@@ -17,9 +17,6 @@
  *= require fonts/font-awesome/css/font-awesome
 
  *= require plugins/magnific-popup/magnific-popup
- *= require plugins/rs-plugin-5/css/settings
- *= require plugins/rs-plugin-5/css/layers
- *= require plugins/rs-plugin-5/css/navigation
  *= require css/animations
  *= require plugins/slick/slick
 
@@ -35,19 +32,27 @@
  /* PAGE LOGIN ET SIGNUP  */
 
 .devise_container {
-    border: 2px solid #00a0c2;
-    height: 450px;
+    border: 1px solid black;
+    max-width: 400px;
     margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #FAFAFA;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     display: flex; 
     justify-content: center;
     border-radius: 15px;
 }
 
+
+.form {
+  
+
+}
+
 .form input {
-    width: 500px;
+    max-width: 300px;
 }
 
 .actions {

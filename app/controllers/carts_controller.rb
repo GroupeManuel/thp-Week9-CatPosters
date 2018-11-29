@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def edit
     @cart = Cart.find(params[:id])
   	@cart_amount = cart_price(@cart.id)
-  	@items = @cart.cart_items
+  	@items = @cart.cart_items.order(:id)
     
     #Statut modifié
     if @cart.status = 'created'

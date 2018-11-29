@@ -1,0 +1,58 @@
+  <div class="container_cart">
+    <div class="row">     
+      <div class="main col-12">      
+        <h1 class="page-title">Shopping Cart</h1>
+        <div class="separator-2"></div>
+        <table class="table cart table-hover table-colored">
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th class="amount">SubTotal</th>
+            </tr>
+          </thead>
+            <tbody>                
+            <% @items.each do |cart_item| %>
+           <tr>
+             <td> 
+              <div class="quantity row "> 
+              <%= link_to cart_item_path(cart_item.id,quantity:'-1'), method: 'patch' do %>
+                 <button class='btn btn-sm btn-secondary'> - </button>
+              <% end %>
+              <%= cart_item.quantity %>
+              <%= link_to cart_item_path(cart_item.id,quantity:'1'), method: 'patch'  do %>
+                <button class='btn btn-sm btn-secondary'> + </button>
+              <% end %>
+             </div>
+            </td>
+            <td class ="product">
+             <h5><%= Item.find(cart_item.item_id).title %></h5>
+           </td>
+           <td class ="price"> <%= cart_item.price %> €</td>
+        <td class="amount"><%= cart_item.quantity * cart_item.price %> €</td>
+        <td>
+          <%= link_to cart_item_path(cart_item.id), method: :delete, data: { confirm: 'Are you certain you want to remove this article?'} do %>
+          <button class='btn btn-sm btn-danger'><i class="fa fa-trash"></i></button>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+      <tr>
+        <td class="total-quantity text-right" colspan="3">Total <%= current_cart_count %> Items</td>
+        <td class="total-amount"> <%= current_cart_price %> €</td>
+      </tr>
+    </tbody>
+    <tfooter>
+      <td class="total-quantity text-right" colspan="4">
+        <%= link_to orders_path, method: :post, return:true do %>
+          <button class='btn btn-success'><i class="fa fa-check"></i> Confirm cart</button>
+        <% end %>
+      </td>
+    </tfooter>
+  </table>
+         
+      </div>
+    </div>	
+  </div>
+</div>

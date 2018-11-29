@@ -1,0 +1,115 @@
+
+		<div class="container_shipping">
+      <div class="row">     
+        <div class="main col-12">			
+        <fieldset>
+        	<%= form_tag(orders_path, method: "create") do %>
+                <legend>Billing information</legend>
+                <form class="form-horizontal">
+                  <div class="row">
+                    <div class="col-xl-3">
+                      <h3 class="title">Personal Info</h3>
+                    </div>
+                    <div class="col-xl-8 ml-xl-auto">
+                      <div class="form-group row">
+                        <label for="billingFirstName" class="col-lg-2 control-label text-lg-right col-form-label">First Name<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingFirstName" value="First Name">
+                        </div>
+                      </div>	
+                      <div class="form-group row">
+                        <label for="billingLastName" class="col-lg-2 control-label text-lg-right col-form-label">Last Name<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingLastName" value="Last Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="billingTel" class="col-lg-2 control-label text-lg-right col-form-label">Telephone<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingTel" value="Telephone">
+                        </div>
+                      </div>              
+                    </div>
+                  </div>
+                  <div class="space"></div>
+                  <div class="row">
+                    <div class="col-xl-3">
+                      <h3 class="title mt-5 mt-lg-0">Your Address</h3>
+                    </div>
+
+                    <div class="col-xl-8 ml-xl-auto">
+                      <div class="form-group row">
+                        <label for="billingAddress" class="col-lg-2 control-label text-lg-right col-form-label">Address<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingAddress1" value="Address 1">
+                        </div>
+                      </div>
+                    
+                      <div class="form-group row">
+                        <label class="col-lg-2 control-label text-lg-right col-form-label">Country<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <select class="form-control">
+                            <option value="AF">Afghanistan</option>
+                            <option value="AX">Aland Islands</option>
+                            <option value="AL">Albania</option>
+                            <option value="DZ">Algeria</option>
+                            <option value="AS">American Samoa</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AO">Angola</option>
+                            <option value="AI">Anguilla</option>
+                            <option value="AQ">Antarctica</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="billingCity" class="col-lg-2 control-label text-lg-right col-form-label">City<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingCity" value="City">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="billingPostalCode" class="col-lg-2 control-label text-lg-right col-form-label">Zip Code<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="billingPostalCode" value="Postal Code">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-lg-2 control-label text-lg-right col-form-label">Shipping method<small class="text-default">*</small></label>
+                        <div class="col-lg-10">
+                          <select class="form-control">
+                            <option value="">Colissimo</option>
+                            <option value="">Chronpost</option>
+                            <option value="">DHL</option>                  
+                          </select>
+                      </div>
+                  </div>
+                    </div>
+                  </div>
+                  <div class="space"></div>
+                  <div class="row">
+                    <div class="col-xl-3">
+                      <h3 class="title mt-5 mt-lg-0">Additional Info</h3>
+                    </div>
+                    <div class="col-xl-8 ml-xl-auto">
+                      <div class="form-group row">
+                        <div class="col-12">
+                          <textarea class="form-control" rows="4"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <% end %>
+              </fieldset>
+
+                <div class="text-right">  
+                <a href="shop-cart.html" class="btn btn-group btn-default">Go Back To Cart</a>
+                <%= submit_tag("Go To payment", class: "btn btn-info") %>
+              </div>
+
+            </div>	
+          </div>
+        </div>
+	
+	 

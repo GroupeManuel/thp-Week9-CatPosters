@@ -1,5 +1,7 @@
 {
   "name": "thp-Week9_CatPosters",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }

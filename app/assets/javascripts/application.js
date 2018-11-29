@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -19,10 +22,6 @@
 // Jquery and Bootstap core js files 
 //= require plugins/jquery.min
 //= require bootstrap/js/bootstrap.bundle.min
-
-// jQuery Revolution Slider
-//= require plugins/rs-plugin-5/js/jquery.themepunch.tools.min
-//= require plugins/rs-plugin-5/js/jquery.themepunch.revolution.min
 
 // Isotope javascript
 //= require plugins/isotope/imagesloaded.pkgd.min
