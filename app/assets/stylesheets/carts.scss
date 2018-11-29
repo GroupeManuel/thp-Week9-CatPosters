@@ -37,3 +37,16 @@
     max-width: 960px;
 
 }
+
+.cart .table > tbody > tr > td, .cart.table > tbody > tr > td {
+        text-align: center; 
+}
+
+.table-colored > thead > tr > th{
+     text-align: center; 
+}
+
+*, *::before, *::after{
+      padding-right: 2px;
+      padding-left: 2px;
+}

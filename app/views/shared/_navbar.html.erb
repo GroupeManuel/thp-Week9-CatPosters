@@ -45,9 +45,8 @@
                     <div class="navbar-brand clearfix hidden-lg-up">
                       <!-- logo -->
                       <div id="logo-mobile" class="logo">
-
                         <%= link_to root_path do %>
-                          <img id="logo_img" src="../../assets/images/logo_dark_cyan.png" alt="The Project">
+                          <img id="logo_img" src="../../assets/images/kraft.png" alt="kraft">
                         <% end %>
                       </div>
                     </div>
@@ -97,7 +96,7 @@
                               </tbody>
                             </table>
                             <div class="panel-body text-right">
-                              <%= link_to 'Checkout', edit_cart_path(current_cart.id), class:"btn btn-group btn-gray btn-sm" %>
+                              <%= link_to 'Checkout', edit_cart_path(current_cart.id), class:"btn btn-outline-info btn-sm" %>
                             </div>
                           </li>
                         </ul>
@@ -166,7 +165,7 @@
                           </tbody>
                         </table>
                         <div class="panel-body text-right">
-                          <%= link_to 'Checkout', edit_cart_path(current_cart.id), class:"btn btn-group btn-gray btn-sm" %>
+                          <%= link_to 'Checkout', edit_cart_path(current_cart.id), class:"btn btn-outline-info btn-sm" %>
                         </div>
                       </li>
                     </ul>

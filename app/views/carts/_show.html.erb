@@ -10,19 +10,22 @@
               <th>Product</th>
               <th>Unit Price</th>
               <th class="amount">SubTotal</th>
+              <th>Remove</th>
+
             </tr>
           </thead>
             <tbody>                
             <% @items.each do |cart_item| %>
            <tr>
              <td> 
-              <div class="quantity row "> 
-              <%= link_to cart_item_path(cart_item.id,quantity:'-1'), method: 'patch' do %>
-                 <button class='btn btn-sm btn-secondary'> - </button>
+              <div class="quantity_row "> 
+              <%= link_to cart_item_path(cart_item.id,quantity:'-1'), method: 'patch' do %>          
+               <i class="fa fa-minus"></i>
+
               <% end %>
               <%= cart_item.quantity %>
               <%= link_to cart_item_path(cart_item.id,quantity:'1'), method: 'patch'  do %>
-                <button class='btn btn-sm btn-secondary'> + </button>
+                <i class="fa fa-plus"></i>
               <% end %>
              </div>
             </td>
@@ -45,7 +48,7 @@
     </tbody>
 
     <tfooter>
-      <td class="total-quantity text-right" colspan="4">
+      <td class="total-quantity text-right" colspan="12">
         <%= link_to orders_path, method: :post, return:true do %>
           <button class='btn btn-success'><i class="fa fa-check"></i> Confirm cart</button>
         <% end %>

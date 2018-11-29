@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap/css/bootstrap
+ *= require fonts/font-awesome/css/font-awesome
+ *= require plugins/magnific-popup/magnific-popup
+ *= require css/animations
+ *= require plugins/slick/slick
+ *= require css/style
+ *= require css/typography-default
+ *= require css/skins/light_blue
+*= require css/custom
+ */
+
+ /* PAGE LOGIN ET SIGNUP  */
+
+
+
+.devise_container {
+    border: 1px solid black;
+    max-width: 400px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #FAFAFA;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex; 
+    justify-content: center;
+    border-radius: 15px;
+}
+
+
+.form {
+  
+
+}
+
+.form input {
+    max-width: 300px;
+}
+
+.actions {
+    margin-top: 25px;
+}
+
+ /* PAGE INDEX DES ITEMS */
+
+.image_item_container {
+    height: 300px;
+    width: 250px;
+}
+
+.image_item {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.header-dropdown-buttons .btn-group:first-child{
+    margin-bottom: 10px;
+    padding-right: 10px;
+
+}
