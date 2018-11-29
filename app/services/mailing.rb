@@ -45,3 +45,4 @@ end
 # Gibbon::Request.new.lists("c3c516a4aa").members("506e38eec85b63d51c4d69ca3f739efa").update(body: {segments: {"11385": true}})	
 # member_id = @gibbon.lists("c3c516a4aa").segments("11385").members(body: {email_address: email}).retrieve
 		# @gibbon.lists("c3c516a4aa").members("506e38eec85b63d51c4d69ca3f739efa").tags.create(body: {tag_name: "Order", status: "active"})
+
