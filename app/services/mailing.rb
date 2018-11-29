@@ -4,13 +4,14 @@ class Mailing
 		@gibbon = Gibbon::Request.new
 	end
 	
-	# Coordonner avec le controller sign up
+	# Coordonné avec le model Artisan, une fois qu'un artisan est créé
 	def new_subscriber(email)
 		@gibbon.lists("c3c516a4aa").members.create(
 		body: {email_address: email, status: "subscribed"}
 		)
 	end
 
+	# Coordonné par le controller order, une fois qu'un order est créé
 	def new_buyer(email)
 		@gibbon.lists("c3c516a4aa").segments("11385").members.create(body: {email_address: email})
 		@gibbon.lists("c3c516a4aa").segments("11385").members.create(body: {email_address: "manueltrinquet@gmail.com"})
