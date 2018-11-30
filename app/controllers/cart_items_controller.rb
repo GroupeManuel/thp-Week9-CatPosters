@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 
   def create
 
-    item = Item.find(params['selected_item'])
+    item = Item.find(params[:selected_item])
 
   	#Création du premer cart_item
     add_to_cart = CartItem.new( 
@@ -27,6 +27,7 @@ class CartItemsController < ApplicationController
 
     #Actualisation de la quantité
     cart_item.quantity += params['quantity'].to_i
+    cart_item.save
 
     #Cas d'une quantité de base =1
     if cart_item.quantity == 0
@@ -37,8 +38,6 @@ class CartItemsController < ApplicationController
         #ajouter un message flash après la redirection
       end
     end
-
-    cart_item.save
 
     current_cart.status = 'updated'
     current_cart.save

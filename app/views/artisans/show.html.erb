@@ -1,51 +1,45 @@
-     <div class= 'personal_info'> 
-            <h3 class="title">Account info</h3>
-             <form>
-                <div class="form-group">
-                  <label>Email address</label>
-                  <input type="email" class="form-control" value="<%= current_artisan.email %>">
-                </div>
-                <div class="form-group">
-                  <label> Password</label>
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>                                      
-                <%= link_to 'Edit', edit_artisan_path, :class => "btn btn-default" %>           
-              </form>       
-          </div>
+<div class='container'>
+  <div class= 'shipping_info card card-body'>
+    <div class='d-flex justify-content-between align-items-center'>
+    <h3 class="card-title mr-auto mb-0 align-middle">Account info</h3>
+    <%= link_to edit_artisan_path, :class => "btn btn-default m-0" do %> 
+    <i class="fa fa-edit"></i><% end %>
+    </div>
+    <div class="separator-2 mt-10"></div>
+    <div class="card-text">
+      <p>Email address : <%= current_artisan.email %></p>
+      <p>First name : </p>
+      <p>Last name : </p>
+    </div>                                      
+  </div>
 
+  <div class= 'shipping_info card card-body'> 
+    <div class='d-flex justify-content-between align-items-center'>
+      <h3 class="card-title mb-0 mr-auto align-middle">Shipping Info</h3>
+      <%= link_to edit_artisan_path, :class => "btn btn-default m-0" do %> 
+      <i class="fa fa-edit"></i><% end %>
+    </div>
+    <div class="separator-2 mt-10"></div>
+    <div class='card-text'>
+      <p>Phone: <%= current_artisan.email %></p>
+      <p>Adress </p>
+      <p>City</p>
+      <p>Postal code:</p>
+    </div>
+  </div>
 
+  <div>  
+  </div>
 
-        <div class= 'shipping_info'> 
-            <h3 class="title">Shipping Info</h3>
-             <form>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="email" class="form-control" value="<%= current_artisan.email %>">
-                </div>
-                <div class="form-group">
-                  <label> Adress</label>
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label>City</label>
-                  <input type="email" class="form-control" value="<%= current_artisan.email %>">
-                </div>
-                <div class="form-group">
-                  <label> Postal code</label>
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-               
-                <%= link_to 'Edit', edit_artisan_path, :class => "btn btn-default" %> 
-              </form>       
-          </div>
+  <div class='shipping_info card card-body'> 
+    <h3 class="card-title">My orders</h3>
+    <div class="separator-2"></div>
 
-        <div class='shipping_info'> 
-            <h3 class="title">My orders</h3>
-            <div class="separator-2"></div>
+    <% if current_artisan.orders.count > 0 %>
+      <% render 'order/index' %>
+    <% else %>
+      <h4 class='text-center'>You have no past order</h4>
+    <% end %> 
+  </div>
 
-            <% if current_artisan.orders.count > 0 %>
-              <% render 'order/index' %>
-            <% else %>
-              <h4 class='text-center'>You have no past order</h4>
-            <% end %> 
-          </div>
+</div>
